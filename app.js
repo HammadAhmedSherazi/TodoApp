@@ -44,25 +44,6 @@ function delItem(thisNode){
 function delAllItem(){
     list.innerHTML = "";
 }
-function addEdit(thisNode){
-    
-    
-    var editbtn = document.createElement('button');
-    editbtn.setAttribute('class', 'btn btn-success');
-    editbtn.setAttribute('onclick', 'editItem(this)');
-    editbtn.innerHTML = "Edit";
-
-    var span1 = thisNode.parentNode;
-    span1.appendChild(editbtn);
-
-    var edinp = document.getElementById('edtinp')
-    let txt = edinp.value;
-
-    span1.insertBefore(span1.lastChild, span1.firstChild);
-    span1.childNodes[1].remove();
-    
-        
-}
 function editItem(thisNode){
     var inp = document.createElement('input');
     inp.setAttribute('id','edtinp');
@@ -88,3 +69,33 @@ function editItem(thisNode){
     span1.childNodes[1].remove(); 
     
 }
+function addEdit(thisNode) {
+
+
+    var editbtn = document.createElement('button');
+    editbtn.setAttribute('class', 'btn btn-success');
+    editbtn.setAttribute('onclick', 'editItem(this)');
+    editbtn.innerHTML = "Edit";
+
+    var span1 = thisNode.parentNode;
+    span1.appendChild(editbtn);
+
+    var edinp = document.getElementById('edtinp')
+    let txt = edinp.value;
+
+    var editedItem = document.createElement('span');
+    var editedItemTxt = document.createTextNode(txt);
+    editedItem.appendChild(editedItemTxt);
+
+    var li = span1.parentNode;
+
+    li.insertBefore(editedItem, li.childNodes[0])
+
+    edinp.style.display = "none";
+
+    span1.insertBefore(span1.lastChild, span1.firstChild);
+    span1.childNodes[1].remove();
+
+
+}
+
