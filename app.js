@@ -81,7 +81,7 @@ function addEdit(thisNode) {
     span1.appendChild(editbtn);
 
     var edinp = document.getElementById('edtinp')
-    let txt = edinp.value;
+    var txt = edinp.value;
 
     var editedItem = document.createElement('span');
     var editedItemTxt = document.createTextNode(txt);
