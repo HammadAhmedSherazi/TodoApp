@@ -91,7 +91,7 @@ function addEdit(thisNode) {
 
     li.insertBefore(editedItem, li.childNodes[0])
 
-    edinp.style.display = "none";
+    edinp.remove();
 
     span1.insertBefore(span1.lastChild, span1.firstChild);
     span1.childNodes[1].remove();
