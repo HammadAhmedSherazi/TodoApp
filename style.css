@@ -18,11 +18,11 @@ ul{
 }
 li{
     display: flex;
-    background-color: whitesmoke;
-    align-item: center;
     justify-content:space-between;
-    width: 350px;
+    width: 360px;
     margin: 10px auto;
-    border-radius: 2px;
-    padding: 10px;
-}
+    align-items:center;
+    background-color:whitesmoke;
+    border-radius:2px;
+    padding:10px;
+} 
