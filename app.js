@@ -5,7 +5,11 @@ function addItem(){
 
     //Input shift into list through create Li in the list
     var li = document.createElement('li');
-    li.innerHTML = item.value;
+    //li.innerHTML = item.value;
+    
+    var text = document.createElement('span');
+    text.append(item.value);
+    li.appendChild(text);
 
     list.appendChild(li);
     //create checkbox
@@ -64,7 +68,7 @@ function check(thisNode){
 	var parent = thisNode.parentNode;
 	parent.style.opacity = '0.5';
 	del = document.createElement('del');
-	var txt = parent.childNodes[0].nextSibling.nodeValue;
+	var txt = parent.childNodes[0].nextSibling.innerHTML;
 	var editedItemTxt = document.createTextNode(txt);
 	del.appendChild(editedItemTxt);
 	parent.appendChild(del);
@@ -89,21 +93,16 @@ function editItem(thisNode){
     li.appendChild(inp);
     li.insertBefore(li.lastChild, li.firstChild);
 
-    var txt = li.childNodes[2].nodeValue;
-    if(txt == null){
-    inp.value = "";
-    inp.setAttribute('placeholder', 'Please Re-enter todo item');
-    thisNode.parentNode.parentNode.childNodes[2].remove();
-    }
-    else{
+    var txt = li.childNodes[2].innerHTML;
+    
     inp.setAttribute('value', txt );
-    thisNode.parentNode.parentNode.childNodes[2].remove();}
-   
-
+    thisNode.parentNode.parentNode.childNodes[2].style.display = 'none';
+    
     thisNode.parentNode.appendChild(addbtn);
     var span1 = thisNode.parentNode;
     span1.insertBefore(span1.lastChild, span1.firstChild);
     span1.childNodes[1].remove();
+    
 
 }
 function addEdit(thisNode) {
@@ -121,7 +120,7 @@ function addEdit(thisNode) {
     span1.appendChild(editbtn);
 
     var edinp = document.getElementById('edtinp')
-    let txt = edinp.value;
+    var txt = edinp.value;
 
     var editedItem = document.createElement('span');
     var editedItemTxt = document.createTextNode(txt);
