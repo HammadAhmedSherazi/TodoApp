@@ -69,17 +69,18 @@ function check(thisNode){
 	parent.style.opacity = '0.5';
 	del = document.createElement('del');
 	var txt = parent.childNodes[0].nextSibling.innerHTML;
-	var editedItemTxt = document.createTextNode(txt);
-	del.appendChild(editedItemTxt);
+	var editedtxt = document.createTextNode(txt);
+	del.appendChild(editedtxt);
 	parent.appendChild(del);
 	parent.insertBefore(parent.lastChild, parent.childNodes[0].nextSibling);
 	parent.childNodes[2].remove();
 }
 function editItem(thisNode){
+	var parent = thisNode.parentNode.parentNode;
     var inp = document.createElement('input');
     inp.setAttribute('id','edtinp');
     
-    var checkBox = document.getElementById('check');
+    var checkBox = parent.firstChild;
     checkBox.style.display='none';
    
     //create button to add Edited Item
@@ -89,14 +90,14 @@ function editItem(thisNode){
     addbtn.setAttribute('id', 'addEdtbtn');
     addbtn.innerHTML = "Add";
 
-    var li = thisNode.parentNode.parentNode;
-    li.appendChild(inp);
-    li.insertBefore(li.lastChild, li.firstChild);
+    parent.appendChild(inp);
+    parent.insertBefore(parent.lastChild, parent.firstChild);
 
-    var txt = li.childNodes[2].innerHTML;
+    var txt = parent.childNodes[2].innerHTML;
     
     inp.setAttribute('value', txt );
-    thisNode.parentNode.parentNode.childNodes[2].style.display = 'none';
+    //console.log(li.childNodes[2])
+    parent.childNodes[2].remove();
     
     thisNode.parentNode.appendChild(addbtn);
     var span1 = thisNode.parentNode;
@@ -107,13 +108,16 @@ function editItem(thisNode){
 }
 function addEdit(thisNode) {
 
+	var parent = thisNode.parentNode.parentNode;
 
     var editbtn = document.createElement('button');
     editbtn.setAttribute('class', 'btn btn-success');
     editbtn.setAttribute('onclick', 'editItem(this)');
     editbtn.innerHTML = "Edit";
     
-    var checkBox = document.getElementById('check');
+   
+    
+    var checkBox = parent.childNodes[1];
     checkBox.style.display='inline';
 
     var span1 = thisNode.parentNode;
