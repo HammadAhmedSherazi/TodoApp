@@ -20,7 +20,7 @@ ul{
 li{
     display: flex;
     justify-content:space-between;
-    width: 360px;
+    width: 370px;
     margin: 10px auto;
     align-items:center;
     background-color:whitesmoke;
