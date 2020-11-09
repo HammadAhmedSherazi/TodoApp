@@ -6,14 +6,33 @@
     <title>Todo App</title>
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyD7mTo_WX60KQecbt3jYihyWBaE3rB1M2Y",
+        authDomain: "todo-app-41ee9.firebaseapp.com",
+        databaseURL: "https://todo-app-41ee9.firebaseio.com",
+        projectId: "todo-app-41ee9",
+        storageBucket: "todo-app-41ee9.appspot.com",
+        messagingSenderId: "735122064793",
+        appId: "1:735122064793:web:bf30b64562cbce6ce43f08",
+        measurementId: "G-QSGXECJVNK"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
     
+</script>
 </head>
 <body>
     <div class="container-fuild">
         <div class="row" id="row1"><h1>TODO APP</h1></div>
         <div class="container-fuild" id="boxmain">
             <div class="row">
-                <input type="text" id="input">
+                <input type="text" id="input" placeholder="Enter Todo Item..">
                 <button type="button" class="btn btn-info" onclick="addItem()">ADD</button>
                 <button type="button" class="btn btn-danger" onclick="delAllItem()">DELETE ALL</button>
             </div>
